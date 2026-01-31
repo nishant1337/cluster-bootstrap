@@ -87,4 +87,3 @@ spec:
             name: nginx-dummy-svc
             port:
               number: 80
-

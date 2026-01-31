@@ -15,6 +15,7 @@ spec:
     helm:
       values: |
         installCRDs: true
+        upgradeCRDs: false
 
         configuration:
           backupStorageLocation:

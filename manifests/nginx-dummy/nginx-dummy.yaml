@@ -80,7 +80,7 @@ spec:
   - host: nishantpansuriya.space
     http:
       paths:
-      - path: ^/nginx-dummy(/|$)(.*)
+      - path: /nginx-dummy(/|$)(.*)
         pathType: ImplementationSpecific
         backend:
           service:

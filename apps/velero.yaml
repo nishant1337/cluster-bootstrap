@@ -17,6 +17,14 @@ spec:
         installCRDs: true
         upgradeCRDs: false
 
+        initContainers:
+          - name: velero-plugin-for-local-volume
+            image: velero/velero-plugin-for-local-volume:v1.4.0
+            imagePullPolicy: IfNotPresent
+            volumeMounts:
+              - mountPath: /target
+                name: plugins
+                
         configuration:
           backupStorageLocations:
             - name: default

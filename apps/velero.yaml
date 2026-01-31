@@ -12,46 +12,46 @@ spec:
     repoURL: https://vmware-tanzu.github.io/helm-charts
     chart: velero
     targetRevision: 11.3.2
-  helm:
-    values: |
-      installCRDs: true
-      upgradeCRDs: false
-  
-      configuration:
-        backupStorageLocations:
-          - name: default
-            provider: filesystem
-            default: true
-            bucket: velero
-            config:
-              storageDirectory: /velero-backups
-  
-        volumeSnapshotLocations:
-          - name: default
-            provider: filesystem
-  
-        excludedNamespaces:
-          - kube-system
-          - kube-public
-          - kube-node-lease
-          - argocd
-          - velero
-  
-      snapshotsEnabled: false
-      deployNodeAgent: true
-  
-      nodeAgent:
-        podVolumePath: /var/lib/kubelet/pods
-  
-        extraVolumes:
-          - name: velero-backups
-            hostPath:
-              path: /var/backups/velero
-              type: DirectoryOrCreate
-  
-        extraVolumeMounts:
-          - name: velero-backups
-            mountPath: /velero-backups
+    helm:
+      values: |
+        installCRDs: true
+        upgradeCRDs: false
+    
+        configuration:
+          backupStorageLocations:
+            - name: default
+              provider: filesystem
+              default: true
+              bucket: velero
+              config:
+                storageDirectory: /velero-backups
+    
+          volumeSnapshotLocations:
+            - name: default
+              provider: filesystem
+    
+          excludedNamespaces:
+            - kube-system
+            - kube-public
+            - kube-node-lease
+            - argocd
+            - velero
+    
+        snapshotsEnabled: false
+        deployNodeAgent: true
+    
+        nodeAgent:
+          podVolumePath: /var/lib/kubelet/pods
+    
+          extraVolumes:
+            - name: velero-backups
+              hostPath:
+                path: /var/backups/velero
+                type: DirectoryOrCreate
+    
+          extraVolumeMounts:
+            - name: velero-backups
+              mountPath: /velero-backups
   
 
   destination:

@@ -17,8 +17,6 @@ spec:
         installCRDs: true
         upgradeCRDs: false
 
-        backupsEnabled: true
-
         initContainers:
           - name: velero-plugin-for-local-volume
             image: velero/velero-plugin-for-local-volume:v1.4.0
@@ -30,7 +28,7 @@ spec:
         configuration:
           backupStorageLocations:
             - name: default
-              provider: filesystem
+              provider: local        
               default: true
               bucket: velero
               config:

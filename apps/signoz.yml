@@ -21,6 +21,12 @@ spec:
           service:
             type: ClusterIP
 
+        zookeeper:
+          image:
+            registry: docker.io
+            repository: bitnami/zookeeper
+            tag: 3.8.3
+            
         queryService:
           resources:
             requests:

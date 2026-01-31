@@ -80,7 +80,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: main-ingress
+  name: nginx-dummy-ingress
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
@@ -94,10 +94,11 @@ spec:
   - host: nishantpansuriya.space
     http:
       paths:
-      - path: /
+      - path: /nginx-dummy
         pathType: Prefix
         backend:
           service:
-            name: portfolio
+            name: nginx-dummy-svc
             port:
               number: 80
+

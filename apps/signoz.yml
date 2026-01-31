@@ -23,8 +23,6 @@ spec:
 
         zookeeper:
           image:
-            registry: docker.io
-            repository: bitnami/zookeeper
             tag: 3.8.3
             
         queryService:

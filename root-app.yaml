@@ -9,6 +9,8 @@ spec:
     repoURL: https://github.com/nishant1337/cluster-bootstrap.git
     targetRevision: HEAD
     path: .
+    directory:
+      recurse: true
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd

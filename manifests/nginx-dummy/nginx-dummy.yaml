@@ -68,6 +68,8 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   ingressClassName: nginx
   tls:
@@ -78,10 +80,11 @@ spec:
   - host: nishantpansuriya.space
     http:
       paths:
-      - path: /nginx-dummy
-        pathType: Prefix
+      - path: ^/nginx-dummy(/|$)(.*)
+        pathType: ImplementationSpecific
         backend:
           service:
             name: nginx-dummy-svc
             port:
               number: 80
+

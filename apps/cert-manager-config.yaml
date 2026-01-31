@@ -1,17 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: portfolio
+  name: cert-manager-config
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
-  project: default
   source:
     repoURL: https://github.com/nishant1337/cluster-bootstrap.git
+    path: manifests/cert-manager
     targetRevision: HEAD
-    path: apps/portfolio
   destination:
     server: https://kubernetes.default.svc
-    namespace: portfolio
+    namespace: cert-manager
   syncPolicy:
     automated:
       prune: true

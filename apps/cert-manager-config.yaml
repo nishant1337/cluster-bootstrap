@@ -6,6 +6,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 spec:
+  project: default
   source:
     repoURL: https://github.com/nishant1337/cluster-bootstrap.git
     path: manifests/cert-manager

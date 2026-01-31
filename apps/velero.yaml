@@ -17,8 +17,6 @@ spec:
         installCRDs: true
 
         configuration:
-          provider: filesystem
-
           backupStorageLocation:
             - name: default
               provider: filesystem

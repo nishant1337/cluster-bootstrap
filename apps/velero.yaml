@@ -16,43 +16,42 @@ spec:
       values: |
         installCRDs: true
         upgradeCRDs: false
-    
+
         configuration:
-          backupStorageLocation:
+          backupStorageLocations:
             - name: default
               provider: filesystem
               default: true
               bucket: velero
               config:
                 storageDirectory: /velero-backups
-    
-          volumeSnapshotLocation:
+
+          volumeSnapshotLocations:
             - name: default
-              provider: filesystem
-    
+              provider: aws
+
           excludedNamespaces:
             - kube-system
             - kube-public
             - kube-node-lease
             - argocd
             - velero
-    
+
         snapshotsEnabled: false
         deployNodeAgent: true
-    
+
         nodeAgent:
           podVolumePath: /var/lib/kubelet/pods
-    
+
           extraVolumes:
             - name: velero-backups
               hostPath:
                 path: /var/backups/velero
                 type: DirectoryOrCreate
-    
+
           extraVolumeMounts:
             - name: velero-backups
               mountPath: /velero-backups
-  
 
   destination:
     server: https://kubernetes.default.svc

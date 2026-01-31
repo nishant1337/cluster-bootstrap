@@ -26,18 +26,6 @@ spec:
                 name: plugins
 
         configuration:
-          backupStorageLocations:
-            - name: default
-              provider: local        
-              default: true
-              bucket: velero
-              config:
-                storageDirectory: /velero-backups
-
-          volumeSnapshotLocations:
-            - name: default
-              provider: aws
-
           excludedNamespaces:
             - kube-system
             - kube-public
